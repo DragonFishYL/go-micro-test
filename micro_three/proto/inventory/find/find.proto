@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message FindRequest {
+  string item = 1;
+  string qty =2;
+  string status = 3;
+  FindSizeRequest size=4;
+  int64 tags=5;
+}
+
+message FindSizeRequest{
+  int64 h =1;
+  int64 ww =2;
+  int64 uom =3;
+}
+
+message FindResponse {
+  string item = 1;
+  string qty =2;
+  string status = 3;
+}
+
+service Find{
+  rpc GetFind(FindRequest) returns (FindResponse) {}
+}
